@@ -1,0 +1,54 @@
+service: serverless123
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  stage: ${opt:stage,'dev'}
+  region: us-east-1
+  profile: <YOUR AWS PROFILE>
+  iamRoleStatements: # IAM Role Permissions
+    - Effect: "Allow"
+      Action:
+        - "logs:CreateLogGroup"
+        - "logs:CreateLogStream"
+        - "logs:PutLogEvents"
+      Resource: "*"
+    - Effect: "Allow"
+      Action:
+        - "s3:ListBucket"
+      Resource: { "Fn::Join" : ["", ["arn:aws:s3:::", { "Ref" : "ServerlessDeploymentBucket" } ] ]  }
+    - Effect: "Allow"
+      Action:
+        - "s3:PutObject"
+      Resource:
+        Fn::Join:
+          - ""
+          - - "arn:aws:s3:::"
+            - "Ref" : "ServerlessDeploymentBucket"
+            - "/*"
+
+
+# Custom variables
+custom:
+  stages: # for stage manager
+    - dev
+    - staging
+    - prod
+  serverless-offline:
+    httpPort: 3000
+
+# Plugins
+plugins:
+  - serverless-stage-manager
+  - serverless-offline
+
+# Functions
+functions:
+  serverless346:
+    name: serverless789
+    handler: handler.router
+    timeout: 30
+    events:
+      - http:
+          path: 'jingchak/{proxy+}'
+          method: any
