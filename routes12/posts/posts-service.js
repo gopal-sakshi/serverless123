@@ -24,7 +24,7 @@ services.showALL = async function(req, res) {
                 console.log('err = ',err);
                 reject(err);
             } else {
-                console.log(data);
+                // console.log(data);
                 resolve(data);
             }
         });

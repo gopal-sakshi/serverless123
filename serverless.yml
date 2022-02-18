@@ -3,39 +3,47 @@ service: serverless123
 provider:
   name: aws
   runtime: nodejs8.10
-  stage: ${opt:stage,'dev'}
+  #stage: ${opt:stage,'dev'}
   region: us-east-1
   profile: <YOUR AWS PROFILE>
-  iamRoleStatements: # IAM Role Permissions
-    - Effect: "Allow"
-      Action:
-        - "logs:CreateLogGroup"
-        - "logs:CreateLogStream"
-        - "logs:PutLogEvents"
-      Resource: "*"
-    - Effect: "Allow"
-      Action:
-        - "s3:ListBucket"
-      Resource: { "Fn::Join" : ["", ["arn:aws:s3:::", { "Ref" : "ServerlessDeploymentBucket" } ] ]  }
-    - Effect: "Allow"
-      Action:
-        - "s3:PutObject"
-      Resource:
-        Fn::Join:
-          - ""
-          - - "arn:aws:s3:::"
-            - "Ref" : "ServerlessDeploymentBucket"
-            - "/*"
+  # iamRoleStatements: # IAM Role Permissions
+  #   - Effect: "Allow"
+  #     Action:
+  #       - "logs:CreateLogGroup"
+  #       - "logs:CreateLogStream"
+  #       - "logs:PutLogEvents"
+  #     Resource: "*"
+  #   - Effect: "Allow"
+  #     Action:
+  #       - "s3:ListBucket"
+  #     Resource: { "Fn::Join" : ["", ["arn:aws:s3:::", { "Ref" : "ServerlessDeploymentBucket" } ] ]  }
+  #   - Effect: "Allow"
+  #     Action:
+  #       - "s3:PutObject"
+  #     Resource:
+  #       Fn::Join:
+  #         - ""
+  #         - - "arn:aws:s3:::"
+  #           - "Ref" : "ServerlessDeploymentBucket"
+  #           - "/*"
 
 
 # Custom variables
 custom:
-  stages: # for stage manager
-    - dev
-    - staging
-    - prod
+  # stages: # for stage manager
+  #   - dev
+  #   - staging
+  #   - prod
   serverless-offline:
-    httpPort: 3000
+    httpPort: 4000
+    websocketPort: 4001
+    lambdaPort: 4002
+
+# serverless-offline uses these ports
+#   httpPort ......................... HTTP port to listen on. Default: 3000
+#   lambdaPort ....................... Lambda http port to listen on. Default: 3002
+#   websocketPort .................... Websocket port to listen on. Default: 3001
+# so, we cant use any of these... if we want to run multiple serverless process on different ports, use 4000, 4001, 4002
 
 # Plugins
 plugins:

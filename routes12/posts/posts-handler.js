@@ -18,17 +18,11 @@ function handle(operation) {
     
     const method12 = handlerMap[operation];
     console.log('vacha entanta');
-    // return async function() {
-    //     new Promise ((resolve, reject) => {
-    //     if (2<3) resolve('hurray');
-    //     else reject('poyindi po');
-    //     });
-    // }
     
     return async function (req, res) {
         const result = await method12.service(req, res).then(result44 => {
             console.log(`successfully executed, ${method12.methodName}`);
-            console.log("abc", result44);
+            //console.log("abc", result44);
             return result44;
         }).catch(error => {
             console.log('error is ', error);
