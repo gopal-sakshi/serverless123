@@ -2,16 +2,13 @@ var fs = require('fs');
 var services = {}
 
 services.addPost = async function(req, res) {
-    try {
-        console.log('inside addPost... why we use try/catch block though');
-        fs.appendFile('resources/posts12.txt', req.body, function (err) {
-            if(err) {
-                console.log('error in fs.appendFile');
-            }
-        });
-    } catch (error) {
-        console.log(error)
-    }
+
+    console.log('inside addPost ', req.body);
+    return new Promise((resolve, reject) => {
+        fs.promises.appendFile('resources/posts12.txt', req.body).then(() => {
+            resolve(`appended ${req.body}`);
+        }).catch(() => {reject ('couldnt append')});
+    });    
 }
 
 services.showALL = async function(req, res) {

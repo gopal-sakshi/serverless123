@@ -17,7 +17,6 @@ const handlerMap = {
 function handle(operation) {
     
     const method12 = handlerMap[operation];
-    console.log('vacha entanta');
     
     return async function (req, res) {
         const result = await method12.service(req, res).then(result44 => {
