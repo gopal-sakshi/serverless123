@@ -8,7 +8,7 @@ services.addQuote = async function(req, res) {
     //         console.log('error in fs.appendFile');
     //     }
     // });
-
+    req.body += '\n';
     return new Promise((resolve, reject) => {
         fs.promises.appendFile('resources/quotes12.txt', req.body).then(() => {
             resolve(`appended ${req.body}`);

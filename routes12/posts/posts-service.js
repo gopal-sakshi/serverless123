@@ -4,6 +4,7 @@ var services = {}
 services.addPost = async function(req, res) {
 
     console.log('inside addPost ', req.body);
+    req.body += '\n';
     return new Promise((resolve, reject) => {
         fs.promises.appendFile('resources/posts12.txt', req.body).then(() => {
             resolve(`appended ${req.body}`);

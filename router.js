@@ -30,11 +30,11 @@ async function startRestApiService(event) {
     var result76;
     await api44.run(event, undefined, (err, data) => {
         if(err) {
-            result76 = 'phattu'
+            result76 = err            
         } else {
             console.log('event successfully ran');
             console.log(data);
-            result76 = data.body;
+            result76 = data;
         }        
     });
     return result76;
