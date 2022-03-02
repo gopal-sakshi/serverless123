@@ -29,4 +29,8 @@ services.showALL = async function(req, res) {
     });
 }
 
+services.postWithParams = async function(req, res) {
+    console.log(req);
+}
+
 module.exports = services;

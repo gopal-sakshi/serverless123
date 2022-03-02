@@ -12,6 +12,11 @@ const handlerMap = {
         methodName: 'showAll',
         errorMsg: `Unable to process!`
     },
+    postWithParams: {
+        service: services.postWithParams,
+        methodName: 'postWithParams',
+        errorMsg: 'Unable to Process!'
+    }
 }
 
 function handle(operation) {
@@ -38,5 +43,6 @@ function handle(operation) {
 
 module.exports = {
     addPost: handle('addPost'),
-    showALL: handle('showALL')
+    showALL: handle('showALL'),
+    postWithParams: handle('postWithParams')
 }
