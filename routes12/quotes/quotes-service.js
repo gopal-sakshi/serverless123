@@ -23,7 +23,7 @@ services.showALLQuotes = async function(req, res) {
     //     return res.end();
     // });
 
-    console.log('inside show all');
+    // console.log('inside show all');
 
     return new Promise ((resolve, reject) => {
         fs.readFile('resources/quotes12.txt', 'utf-8', function(err, data) {

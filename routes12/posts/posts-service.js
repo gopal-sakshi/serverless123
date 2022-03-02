@@ -3,7 +3,7 @@ var services = {}
 
 services.addPost = async function(req, res) {
 
-    console.log('inside addPost ', req.body);
+    // console.log('inside addPost ', req.body);
     req.body += '\n';
     return new Promise((resolve, reject) => {
         fs.promises.appendFile('resources/posts12.txt', req.body).then(() => {
@@ -14,7 +14,7 @@ services.addPost = async function(req, res) {
 
 services.showALL = async function(req, res) {
 
-    console.log('inside show all');
+    // console.log('inside show all');
 
     return new Promise ((resolve, reject) => {
         fs.readFile('resources/posts12.txt', 'utf-8', function(err, data) {

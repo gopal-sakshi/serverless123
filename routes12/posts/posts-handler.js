@@ -27,7 +27,7 @@ function handle(operation) {
             console.log('error is ', error);
             return error;
         });
-        console.log('returning from function', result);
+        // console.log('returning from function', result);
         return new Promise ((resolve, reject) => {
           if(result) resolve(result);
           else reject(error);

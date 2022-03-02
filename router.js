@@ -12,7 +12,7 @@ api44.use((req,res,next) => {
 
 async function router(event) {
     const blah24 = await startRestApiService(event);
-    console.log('blah24', blah24);
+    // console.log('blah24', blah24);
     return new Promise ((resolve, reject) => {
         if(blah24) {
             resolve(blah24)
@@ -32,8 +32,8 @@ async function startRestApiService(event) {
         if(err) {
             result76 = err            
         } else {
-            console.log('event successfully ran');
-            console.log(data);
+            // console.log('event successfully ran');
+            // console.log(data);
             result76 = data;
         }        
     });
