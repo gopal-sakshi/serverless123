@@ -31,6 +31,11 @@ services.showALL = async function(req, res) {
 
 services.postWithParams = async function(req, res) {
     console.log(req);
+    console.log(req.params);
+    console.log(req.query);
+    return new Promise((resolve, reject) => {
+        resolve(`received params & queryParams = ${req.params.playerName} & ${req.query.color}`)
+    })
 }
 
 module.exports = services;
