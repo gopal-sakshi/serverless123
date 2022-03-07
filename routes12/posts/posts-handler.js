@@ -24,7 +24,7 @@ function handle(operation) {
     const method12 = handlerMap[operation];
     
     return async function (req, res) {
-        const result = await method12.service(req, res).then(result44 => {
+        const result = await method12.service(req, res, 'LaLiga').then(result44 => {
             console.log(`successfully executed, ${method12.methodName}`);
             //console.log("abc", result44);
             return result44;

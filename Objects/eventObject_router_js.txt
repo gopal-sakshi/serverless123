@@ -1,0 +1,72 @@
+{
+  body: null,
+  headers: {
+    'User-Agent': 'PostmanRuntime/7.29.0',
+    Accept: '*/*',
+    'Postman-Token': '43c9562f-eceb-4ff6-8b7a-108f0454c8a1',
+    Host: 'localhost:4000',
+    'Accept-Encoding': 'gzip, deflate, br',
+    Connection: 'keep-alive'
+  },
+  httpMethod: 'GET',
+  isBase64Encoded: false,
+  multiValueHeaders: {
+    'User-Agent': [ 'PostmanRuntime/7.29.0' ],
+    Accept: [ '*/*' ],
+    'Postman-Token': [ '43c9562f-eceb-4ff6-8b7a-108f0454c8a1' ],
+    Host: [ 'localhost:4000' ],
+    'Accept-Encoding': [ 'gzip, deflate, br' ],
+    Connection: [ 'keep-alive' ]
+  },
+  multiValueQueryStringParameters: null,
+  path: '/jingchak/jingchak/posts/showALL',
+  pathParameters: { proxy: 'jingchak/posts/showALL' },
+  queryStringParameters: null,
+  requestContext: {
+    accountId: 'offlineContext_accountId',
+    apiId: 'offlineContext_apiId',
+    authorizer: {
+      claims: undefined,
+      scopes: undefined,
+      principalId: 'offlineContext_authorizer_principalId'
+    },
+    domainName: 'offlineContext_domainName',
+    domainPrefix: 'offlineContext_domainPrefix',
+    extendedRequestId: 'cl0gluatb0003zj6f2i7y1r66',
+    httpMethod: 'GET',
+    identity: {
+      accessKey: null,
+      accountId: 'offlineContext_accountId',
+      apiKey: 'offlineContext_apiKey',
+      apiKeyId: 'offlineContext_apiKeyId',
+      caller: 'offlineContext_caller',
+      cognitoAuthenticationProvider: 'offlineContext_cognitoAuthenticationProvider',
+      cognitoAuthenticationType: 'offlineContext_cognitoAuthenticationType',
+      cognitoIdentityId: 'offlineContext_cognitoIdentityId',
+      cognitoIdentityPoolId: 'offlineContext_cognitoIdentityPoolId',
+      principalOrgId: null,
+      sourceIp: '127.0.0.1',
+      user: 'offlineContext_user',
+      userAgent: 'PostmanRuntime/7.29.0',
+      userArn: 'offlineContext_userArn'
+    },
+    path: '/jingchak/jingchak/posts/showALL',
+    protocol: 'HTTP/1.1',
+    requestId: 'cl0gluatb0004zj6f19v25os4',
+    requestTime: '07/Mar/2022:16:43:10 +0530',
+    requestTimeEpoch: 1646651590461,
+    resourceId: 'offlineContext_resourceId',
+    resourcePath: '/dev/jingchak/{proxy*}',
+    stage: 'dev'
+  },
+  resource: '/jingchak/{proxy*}',
+  stageVariables: undefined
+}
+
+"path" property
+- because the URL that we typed in postman is http://localhost:4000/dev/jingchak/jingchak/posts/showALL
+- the path property =====> jingchak/jingchak/posts/showALL
+- had we typed URL as http://localhost:4000/dev/posts/hello-doctor
+  then path property ====> posts/hello-doctor
+- SUMMARY
+  path property is nothing but what we type in URL (ie endpoint)

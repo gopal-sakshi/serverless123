@@ -1,0 +1,20 @@
+API {
+  _version: 'v1.0',
+  _base: 'jingchak',
+  _callbackName: 'callback',
+  _mimeTypes: {},
+  _prefix: [ 'jingchak', ':param12', 'posts' ],
+  _routes: {},
+  _cb: [Function],
+  _middleware: [ [Function] ],
+  _errors: [],
+  _app: {},
+  _finally: [Function],
+  _errorStatus: 500,
+  _test: false
+}
+
+options { 
+    prefix: '/:param12/posts', 
+    path: '/jingchak/jingchak/posts/showALL' 
+}

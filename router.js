@@ -11,6 +11,7 @@ api44.use((req,res,next) => {
 
 
 async function router(event) {
+    // console.log(event);
     const blah24 = await startRestApiService(event);
     // console.log('blah24', blah24);
     return new Promise ((resolve, reject) => {
@@ -23,8 +24,16 @@ async function router(event) {
 }
 
 async function startRestApiService(event) {
-    api44.register(posts, {prefix: '/jingchak/posts', path: event.path} );
-    api44.register(quotes, {prefix: '/jingchak/quotes', path: event.path} );
+    //const param12 = 'jingchak'
+    const param12 = 'param13'
+
+
+        // this {prefix: '', path: ''} =============> is the 'options' argument/parameter inside router(api, options) in posts-router.js
+        // So, what lambda-api does =========>
+            // registers 'posts' route... you pass options as 2nd parameter of this register() function
+            // so, in router() function of posts-router.js =====> you can access this "options object"
+    api44.register(posts, {prefix: '/:param12/posts', path: event.path, urike: 'hello doctor'} );
+    api44.register(quotes, {prefix: '/:param12/quotes', path: event.path} );
     // api44.run(event,context,callback);
     // api44.run(event);
     var result76;

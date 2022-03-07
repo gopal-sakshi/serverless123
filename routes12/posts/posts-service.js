@@ -1,7 +1,7 @@
 var fs = require('fs');
 var services = {}
 
-services.addPost = async function(req, res) {
+services.addPost = async function(req, res, leagueName) {
 
     // console.log('inside addPost ', req.body);
     req.body += '\n';
@@ -12,8 +12,8 @@ services.addPost = async function(req, res) {
     });    
 }
 
-services.showALL = async function(req, res) {
-
+services.showALL = async function(req, res, leagueName) {
+    console.log(leagueName);
     // console.log('inside show all');
 
     return new Promise ((resolve, reject) => {

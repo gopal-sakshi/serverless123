@@ -18,7 +18,7 @@ function handle(operation) {
     const method12 = handlerMap[operation];
 
     return async function (req, res) {
-        const result = await method12.service(req, res).then(result77 => {
+        const result = await method12.service(req, res, 'EPL').then(result77 => {
             console.log(`successfully executed, ${method12.methodName}`);
             return result77
         }).catch(error => {
