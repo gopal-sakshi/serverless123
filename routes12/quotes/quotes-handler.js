@@ -11,6 +11,11 @@ const handlerMap = {
         methodName: 'showAllQuotes',
         errorMsg: `Unable to process!`
     },
+    showNovel: {
+        service: services.showNovel,
+        methodName: 'showNovel',
+        errorMsg: `Unable to process!`
+    }
 }
 
 function handle(operation) {
@@ -35,5 +40,6 @@ function handle(operation) {
 
 module.exports = {
     addQuote: handle('addQuote'),
-    showALLQuotes: handle('showALLQuotes')
+    showALLQuotes: handle('showALLQuotes'),
+    showNovel: handle('showNovel')
 }

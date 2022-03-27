@@ -38,5 +38,15 @@ services.showALLQuotes = async function(req, res) {
     });
 
 }
+// showAllQuotes --> uses simple fs.readFile
+// showNovel --> uses nodeJs stream module...
 
+services.showNovel = async function(req, res) {
+    return new Promise((resolve, reject) => {
+        const src = fs.createReadStream('resources/a_tale_of_two_cities.txt');
+        resolve(src);
+    })
+}
+
+services.showAllQuotesAsStream
 module.exports = services;
