@@ -30,10 +30,11 @@ function handle(operation) {
             console.log(error);
             return error;
         });
+        console.log('return value = ',result)
         // console.log('returning from function',result);
         return new Promise((resolve, reject)=> {
             if(result) resolve(result);
-            else reject(error);
+            else reject('error');
         })
     }
 }

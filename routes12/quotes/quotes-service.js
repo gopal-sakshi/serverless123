@@ -43,8 +43,13 @@ services.showALLQuotes = async function(req, res) {
 
 services.showNovel = async function(req, res) {
     return new Promise((resolve, reject) => {
-        const src = fs.createReadStream('resources/a_tale_of_two_cities.txt');
-        resolve(src);
+        // const src = fs.createReadStream('resources/a_tale_of_two_cities.txt');
+        const src = fs.createReadStream('resources/a_tale_of_two_cities2.txt');
+        var totalNovel;
+        src.on('data', (chunk) => { console.log('chunkValue = ', chunk.toString()); totalNovel = totalNovel + chunk.toString();} );
+        src.close(() => { 
+            resolve(totalNovel);
+        })
     })
 }
 
