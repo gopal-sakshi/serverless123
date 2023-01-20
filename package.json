@@ -4,10 +4,11 @@
   "description": "Sample Serverless API using Lambda API",
   "main": "handler.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npx sls offline"
   },
   "dependencies": {
     "lambda-api": "^0.6.0",
+    "serverless-offline": "^12.0.4",
     "serverless-stage-manager": "^1.0.5"
   }
 }
