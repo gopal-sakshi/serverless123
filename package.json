@@ -4,7 +4,8 @@
   "description": "Sample Serverless API using Lambda API",
   "main": "handler.js",
   "scripts": {
-    "start": "npx sls offline"
+    "start": "npx sls offline",
+    "start_windows": "npx serverless offline"
   },
   "dependencies": {
     "lambda-api": "^0.6.0",

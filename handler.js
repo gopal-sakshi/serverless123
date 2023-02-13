@@ -14,16 +14,11 @@ function setResponseHeaders(data) {
 }
 
 exports.router = async (event, context) => {
-  
+
   const result = await router(event).then((data) => {    
-    // console.log('handler-then', data);
-    const responseObj = setResponseHeaders(data);
-    console.log(responseObj);
-    return responseObj;
-    // In express.js, response object has json() method ---> it sets all the headers correctly & returns the response in JSON format.
-  }).catch((error) => {
-    // console.log('handler-error', error);    
-    return error;
-  });
+    const responseObj = setResponseHeaders(data);    
+    return responseObj;  
+  }).catch((error) => { return error; });
+  
   return result;
 } 

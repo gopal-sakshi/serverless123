@@ -1,29 +1,22 @@
-const api44 = require('lambda-api')({ version: 'v1.0', base: 'jingchak' })
+const api44 = require('lambda-api')({ version: 'wewe', base: 'jingchak' })
 
 const posts = require('./routes12/posts/posts-router');
 const quotes = require('./routes12/quotes/quotes-router');
 
 // Add CORS Middleware
-api44.use((req,res,next) => {  
-    res.cors()
-    next()
-});
+api44.use((req,res,next) => { res.cors(); next(); });
 
 
-async function router(event) {
-    // console.log(event);
-    const blah24 = await startRestApiService(event);
-    // console.log('blah24', blah24);
+async function router(event) {    
+    const blah24 = await startRestApiService(event);    
     return new Promise ((resolve, reject) => {
-        if(blah24) {
-            resolve(blah24)
-        } else {
-            reject('something went wrong');
-        }
+        if(blah24) { resolve(blah24) } 
+        else { reject('something went wrong'); }
     });
 }
 
 async function startRestApiService(event) {
+    console.log(event.path)
     //const param12 = 'jingchak'
     const param12 = 'param13'
 
