@@ -22,3 +22,8 @@ exports.router = async (event, context) => {
   
   return result;
 } 
+
+exports.compute24 = async(event, context) => {
+    console.log("rcvd event @ compute24 ====> ", event);
+    return { info: 'true', time23: new Date().toISOString() }
+}

@@ -8,8 +8,8 @@
     "start_windows": "npx serverless offline"
   },
   "dependencies": {
-    "lambda-api": "^0.6.0",
-    "serverless-offline": "^12.0.4",
+    "lambda-api": "^1.1.0",
+    "serverless-offline": "^13.6.0",
     "serverless-stage-manager": "^1.0.5"
   }
 }

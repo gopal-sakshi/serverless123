@@ -2,7 +2,7 @@ service: serverless123
 
 provider:
   name: aws
-  runtime: nodejs12.x  
+  runtime: nodejs18.x  
   region: us-east-1
   profile: <YOUR AWS PROFILE>
   
@@ -27,3 +27,9 @@ functions:
       - http:
           path: 'jingchak/{proxy+}'
           method: any
+  # compute23:
+  #   handler: handler.compute24
+  #   events:
+  #     - rabbitmq:
+  #         arn: amqp://rabbitmq:1258@localhost:49007
+  #         queue: queue01

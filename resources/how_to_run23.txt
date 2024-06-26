@@ -1,0 +1,4 @@
+npx sls offline
+
+
+aws lambda invoke /dev/null --endpoint-url http://localhost:4000/dev/jingchak/param13/posts/showAllAgain --function-name serverless346

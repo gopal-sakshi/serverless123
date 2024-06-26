@@ -16,16 +16,27 @@ async function router(event) {
 }
 
 async function startRestApiService(event) {
-    console.log(event.path)
+    // console.log("event.body/payload ====> ", event.body);
+    // console.log("event.headers ====> ", event.headers);
+    console.log("event.httpMethod ====> ", event.httpMethod);
+    console.log("event.path =====> ", event.path);
+    console.log("event.resource23 =====> ", event.resource);
+    // Other keys in event Obj ====> pathParameters, queryStringParameters, requestContext
+
+
+
     //const param12 = 'jingchak'
     const param12 = 'param13'
 
+    /**********************************************************************************
 
-        // this {prefix: '', path: ''} =============> is the 'options' argument/parameter inside router(api, options) in posts-router.js
-        // So, what lambda-api does =========>
-            // registers 'posts' route... you pass options as 2nd parameter of this register() function
-            // so, in router() function of posts-router.js =====> you can access this "options object"
-    api44.register(posts, {prefix: '/:param12/posts', path: event.path, urike: 'hello doctor'} );
+    { prefix: '', path: '' } =======> is the 'options' argument inside router(api, options) in posts-router.js
+    what lambda-api does =========>
+        registers 'posts' route... you pass options as 2nd parameter of this register() function
+        so, in router() function of posts-router.js =====> you can access this "options object"
+
+    **********************************************************************************/
+    api44.register(posts, { prefix: '/:param12/posts', path: event.path, urike: 'hello doctor'} );
     api44.register(quotes, {prefix: '/:param12/quotes', path: event.path} );
     // api44.run(event,context,callback);
     // api44.run(event);
