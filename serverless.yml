@@ -4,7 +4,12 @@ provider:
   name: aws
   runtime: nodejs18.x  
   region: us-east-1
-  profile: <YOUR AWS PROFILE>
+
+  profile: profile23      ## === ila okka profile ayina ivvacchuu (or) multiple profiles ivvachu LAIS, staging, dev23 ani
+  # profile:                        === NOT WORKING
+    # LAIS11: lais23
+    # staging11: ped_aws
+    # dev23: dynamoLocal23
   
 custom:
   stages:
@@ -27,9 +32,3 @@ functions:
       - http:
           path: 'jingchak/{proxy+}'
           method: any
-  # compute23:
-  #   handler: handler.compute24
-  #   events:
-  #     - rabbitmq:
-  #         arn: amqp://rabbitmq:1258@localhost:49007
-  #         queue: queue01

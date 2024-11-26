@@ -1,15 +1,12 @@
 const api44 = require('lambda-api')({ version: 'wewe', base: 'jingchak' })
+api44.use((req,res,next) => { res.cors(); next(); });       // Add CORS Middleware
 
 const posts = require('./routes12/posts/posts-router');
 const quotes = require('./routes12/quotes/quotes-router');
 
-// Add CORS Middleware
-api44.use((req,res,next) => { res.cors(); next(); });
-
-
-async function router(event) {    
-    const blah24 = await startRestApiService(event);    
-    return new Promise ((resolve, reject) => {
+async function router(event) {
+    return new Promise (async (resolve, reject) => {
+        const blah24 = await startRestApiService(event);
         if(blah24) { resolve(blah24) } 
         else { reject('something went wrong'); }
     });
@@ -20,37 +17,16 @@ async function startRestApiService(event) {
     // console.log("event.headers ====> ", event.headers);
     console.log("event.httpMethod ====> ", event.httpMethod);
     console.log("event.path =====> ", event.path);
-    console.log("event.resource23 =====> ", event.resource);
-    // Other keys in event Obj ====> pathParameters, queryStringParameters, requestContext
+    console.log("event.resource23 =====> ", event.resource);    
 
 
-
-    //const param12 = 'jingchak'
-    const param12 = 'param13'
-
-    /**********************************************************************************
-
-    { prefix: '', path: '' } =======> is the 'options' argument inside router(api, options) in posts-router.js
-    what lambda-api does =========>
-        registers 'posts' route... you pass options as 2nd parameter of this register() function
-        so, in router() function of posts-router.js =====> you can access this "options object"
-
-    **********************************************************************************/
     api44.register(posts, { prefix: '/:param12/posts', path: event.path, urike: 'hello doctor'} );
-    api44.register(quotes, {prefix: '/:param12/quotes', path: event.path} );
-    // api44.run(event,context,callback);
-    // api44.run(event);
+    api44.register(quotes, { prefix: '/:param12/quotes', path: event.path } );
     var result76;
-    await api44.run(event, undefined, (err, data) => {
-        if(err) {
-            result76 = err            
-        } else {
-            // console.log('event successfully ran');
-            // console.log(data);
-            result76 = data;
-        }        
+    return await api44.run(event, undefined, (err, data) => {
+        if(err) { result76 = err } 
+        else { console.log('event successfully ran ===> \n\n', data); result76 = data; }        
     });
-    return result76;
 }
 
 module.exports = router;
